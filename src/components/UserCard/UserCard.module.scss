@@ -1,0 +1,19 @@
+.container {
+  border: 1px solid tomato;
+  width: 630px;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.mainSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc {
+  width: 309px;
+  font-style: normal;
+  font-weight: 350;
+  font-size: 11px;
+  line-height: 1.36;
+}
