@@ -1,3 +1,4 @@
+@import 'styles/colors';
 .nav {
   display: flex;
   align-content: center;
@@ -7,7 +8,7 @@
 
 .link,
 .activeLink {
-  border: 1px solid rgba(229, 229, 229, 0.58);
+  border: 1px solid $light-gray-accent;
 
   display: flex;
   justify-content: center;
@@ -21,7 +22,7 @@
 }
 
 .activeLink {
-  background-color: rgba(229, 229, 229, 0.58);
+  background-color: $light-gray-accent;
 }
 
 .desc {
@@ -32,5 +33,5 @@
   font-size: 11px;
   line-height: 1.36;
 
-  color: #4c4c4c;
+  color: $dark-gray;
 }

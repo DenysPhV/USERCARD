@@ -1,0 +1,33 @@
+.popup {
+  position: absolute;
+  //   top: 50%;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupInner {
+  text-align: center;
+
+  width: 208px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .popupInner {
+    background: url('../../images/bg_popup@2x.png') no-repeat top left;
+    background-size: 208px 65px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.popupInner .close-btn {
+  top: 16px;
+  right: 16px;
+}

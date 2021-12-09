@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AppBar from './components/AppBar';
 import Container from 'components/Container';
+import UserCard from 'components/UserCard';
 
 // import IconButton from 'components/IconButton';
 // import { ReactComponent as AddIcon } from './icons/add.svg';
@@ -10,7 +10,7 @@ import Container from 'components/Container';
 function App() {
   return (
     <Container>
-      <AppBar />
+      <UserCard />
     </Container>
   );
 }
