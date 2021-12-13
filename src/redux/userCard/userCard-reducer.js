@@ -1,14 +1,19 @@
-import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import card from '../../card.json';
+// import { createReducer, combineReducers } from '@reduxjs/toolkit';
+// import card from '../../card.json';
 
-import { fullyDesc, shortlyDesc } from './userCard-actions';
+// const defaultState = card;
+// console.log(defaultState);
 
-const desc = createReducer(card, {
-  [fullyDesc]: (state, action) => [action.payload, ...state],
-  [shortlyDesc]: (state, action) =>
-    state.filter(({ id }) => id !== action.payload),
-});
+// const descriptionReducer = (state = defaultState, action) => {
+//   switch (action.type) {
+//     case 'description':
+//       break;
 
-export default combineReducers({
-  desc,
-});
+//     default:
+//       return state;
+//   }
+// };
+
+// export default combineReducers({
+//   descriptionReducer,
+// });

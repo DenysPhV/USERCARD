@@ -5,8 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import 'modern-normalize/modern-normalize.css';
 import './index.css';
-
-// import { store } from './redux/store';
+// import { store } from './store/store';
 import App from './App';
 
 ReactDOM.render(

@@ -1,0 +1,30 @@
+@import 'styles/shared';
+
+.list {
+  font-weight: $fat;
+  font-size: 10px;
+  line-height: 1.36;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 100px;
+  height: 35px;
+
+  background: #ff6000;
+  border-radius: 45px;
+  cursor: pointer;
+
+  color: $white;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba(106, 255, 121, 0.75);
+  }
+}

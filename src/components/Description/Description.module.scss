@@ -1,13 +1,15 @@
-@import 'styles/colors';
-.nav {
+@import 'styles/shared';
+.container {
   display: flex;
-  align-content: center;
-  justify-content: center;
-  margin: auto;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 120px;
 }
 
 .link,
 .activeLink {
+  position: absolute;
   border: 1px solid $light-gray-accent;
 
   display: flex;
@@ -25,11 +27,19 @@
   background-color: $light-gray-accent;
 }
 
+.title {
+  font-weight: $Medium;
+  font-size: 12px;
+  line-height: 1.33;
+
+  color: $text-title;
+}
+
 .desc {
   width: 309px;
-  font-family: Segoe UI;
-  font-style: normal;
-  font-weight: 350;
+  margin-right: 30px;
+
+  font-weight: $small-regular;
   font-size: 11px;
   line-height: 1.36;
 

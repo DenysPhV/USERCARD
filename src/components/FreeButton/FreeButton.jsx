@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './IconButton.module.scss';
+import s from './FreeButton.module.scss';
 
-const IconButton = ({ children, onClick, ...allyProps }) => (
+const FreeButton = ({ children, onClick, ...allyProps }) => (
   <button
     type="button"
     onClick={onClick}
     {...allyProps}
-    className={s.IconButton}
+    // className={s.freeButton}
   >
     {children}
   </button>
 );
 
-IconButton.defaultProps = {
+FreeButton.defaultProps = {
   onClick: () => null,
   children: null,
 };
 
-IconButton.propsTypes = {
+FreeButton.propsTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
   'aria-label': PropTypes.string.isRequired,
 };
 
-export default IconButton;
+export default FreeButton;
