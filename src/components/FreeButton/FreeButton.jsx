@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './FreeButton.module.scss';
+// import s from './FreeButton.module.scss';
 
 const FreeButton = ({ children, onClick, ...allyProps }) => (
   <button

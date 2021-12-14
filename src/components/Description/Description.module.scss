@@ -1,5 +1,6 @@
 @import 'styles/shared';
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +11,9 @@
 .link,
 .activeLink {
   position: absolute;
+  left: 0;
+  bottom: -30px;
+
   border: 1px solid $light-gray-accent;
 
   display: flex;
@@ -28,6 +32,7 @@
 }
 
 .title {
+  margin-bottom: 9px;
   font-weight: $Medium;
   font-size: 12px;
   line-height: 1.33;
@@ -38,6 +43,7 @@
 .desc {
   width: 309px;
   margin-right: 30px;
+  margin-bottom: 8px;
 
   font-weight: $small-regular;
   font-size: 11px;

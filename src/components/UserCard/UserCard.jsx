@@ -4,16 +4,19 @@ import { NavLink } from 'react-router-dom';
 import FreeButton from '../FreeButton/FreeButton';
 import Description from '../Description/Description';
 import FrontDeskBtn from '../FrontDeskBtn/FrontDeskBtn';
+import HotelIcon from '../HotelIcon/HotelIcon';
 import Popup from 'components/Popup';
 
 import s from './UserCard.module.scss';
 import btnStyle from '../FreeButton/FreeButton.module.scss';
 
 import { ReactComponent as ArrowFree } from '../../icons/ArrowFree.svg';
+import { ReactComponent as Hotel } from '../../icons/hotel.svg';
 
 function UserCard() {
   const [showPopup, setShowPopup] = useState(false);
   const [isReadMore, setIsReadMore] = useState(true);
+  const [style, setStyle] = useState(btnStyle.freeButton);
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
@@ -21,12 +24,28 @@ function UserCard() {
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
+
+    if (!showPopup) {
+      setStyle(btnStyle.freeButtonActive);
+    } else {
+      setStyle(btnStyle.freeButton);
+    }
+    return;
   };
 
   return (
     <section className={s.sectionCard}>
-      <header>
-        <h1>Киев Левый берег</h1>
+      <header className={s.header}>
+        <h1 className={s.title}>
+          Киев <span className={s.titlePiece}>Левый берег</span>
+        </h1>
+        <div className={s.hotelContainer}>
+          <HotelIcon className={s.iconHotel}>
+            <Hotel />
+            <span className={s.status}>Отель</span>
+          </HotelIcon>
+        </div>
+        <p className={s.hotelName}>Hilton hotel</p>
       </header>
       {/* Тело карты пользователя */}
       <main className={s.main}>
@@ -37,7 +56,7 @@ function UserCard() {
       <footer className={s.footerCard}>
         <NavLink to="/feedback" className={s.button}>{`Отзывы ${568}`}</NavLink>
 
-        <FreeButton onClick={togglePopup} className={btnStyle.freeButton}>
+        <FreeButton onClick={togglePopup} className={style}>
           <ArrowFree className={s.arrow} />
           free
         </FreeButton>
