@@ -6,12 +6,15 @@ import Description from '../Description/Description';
 import FrontDeskBtn from '../FrontDeskBtn/FrontDeskBtn';
 import HotelIcon from '../HotelIcon/HotelIcon';
 import Popup from 'components/Popup';
+import Video from '../Video/Video';
 
 import s from './UserCard.module.scss';
 import btnStyle from '../FreeButton/FreeButton.module.scss';
 
 import { ReactComponent as ArrowFree } from '../../icons/ArrowFree.svg';
 import { ReactComponent as Hotel } from '../../icons/hotel.svg';
+
+import '../../images/default.jpg';
 
 function UserCard() {
   const [showPopup, setShowPopup] = useState(false);
@@ -49,8 +52,13 @@ function UserCard() {
       </header>
       {/* Тело карты пользователя */}
       <main className={s.main}>
+        <img src="default.jpg" alt="" width={100} height={100} />
+
         <Description isReadMore={isReadMore} onClick={toggleReadMore} />
-        <FrontDeskBtn isReadMore={isReadMore} onClick={toggleReadMore} />
+        <div>
+          <Video src={Video} />
+          <FrontDeskBtn isReadMore={isReadMore} onClick={toggleReadMore} />
+        </div>
       </main>
       {/* футер карты пользователя  */}
       <footer className={s.footerCard}>
