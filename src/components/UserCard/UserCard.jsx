@@ -14,9 +14,16 @@ import btnStyle from '../FreeButton/FreeButton.module.scss';
 import { ReactComponent as ArrowFree } from '../../icons/ArrowFree.svg';
 import { ReactComponent as Hotel } from '../../icons/hotel.svg';
 
-import '../../images/default.jpg';
+import defaultImage from '../../images/default.jpg';
 
-function UserCard() {
+function UserCard({
+  url,
+  title,
+  priceBefore,
+  priceAfter,
+  areaApartment,
+  feedback,
+}) {
   const [showPopup, setShowPopup] = useState(false);
   const [isReadMore, setIsReadMore] = useState(true);
   const [style, setStyle] = useState(btnStyle.freeButton);
@@ -48,21 +55,33 @@ function UserCard() {
             <span className={s.status}>Отель</span>
           </HotelIcon>
         </div>
-        <p className={s.hotelName}>Hilton hotel</p>
+        <h2 className={s.hotelName}>{title}</h2>
       </header>
       {/* Тело карты пользователя */}
       <main className={s.main}>
-        <img src="default.jpg" alt="" width={100} height={100} />
+        <ul className={s.imageList}>
+          <li className={s.imageItem}>
+            <img src={url} alt={title} className={s.image} />
+          </li>
+          {!isReadMore && (
+            <li className={s.imageItem}>
+              <img src={url} alt={title} className={s.image} />
+            </li>
+          )}
+        </ul>
 
         <Description isReadMore={isReadMore} onClick={toggleReadMore} />
-        <div>
+        <div className={s.serveBar}>
           <Video src={Video} />
           <FrontDeskBtn isReadMore={isReadMore} onClick={toggleReadMore} />
         </div>
       </main>
       {/* футер карты пользователя  */}
       <footer className={s.footerCard}>
-        <NavLink to="/feedback" className={s.button}>{`Отзывы ${568}`}</NavLink>
+        {/* the button link on feedback  */}
+        <NavLink to="/feedback" className={s.button}>
+          Отзывы {feedback}
+        </NavLink>
 
         <FreeButton onClick={togglePopup} className={style}>
           <ArrowFree className={s.arrow} />
@@ -71,9 +90,22 @@ function UserCard() {
 
         {showPopup && <Popup onClose={togglePopup} />}
 
-        <p className={s.price}>{`Цена за ночь ${700} UAH - ${1900} UAH`}</p>
+        <p className={s.areaApartment}>{areaApartment} м.кв.</p>
+        <p
+          className={s.price}
+        >{`Цена за ночь ${priceBefore} UAH - ${priceAfter} UAH`}</p>
       </footer>
     </section>
   );
 }
+
+UserCard.defaultProps = {
+  url: defaultImage,
+  title: 'Hilton hotel',
+  priceBefore: 700,
+  priceAfter: 1900,
+  areaApartment: 77,
+  feedback: 568,
+};
+
 export default UserCard;

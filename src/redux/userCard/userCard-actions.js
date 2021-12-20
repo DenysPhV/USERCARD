@@ -1,9 +1,9 @@
-import { createAction } from '@reduxjs/toolkit';
+// import { createAction } from '@reduxjs/toolkit';
 
-const fullyDesc = createAction('description/fully', ({ fully }) => ({
-  payload: { fully },
-}));
+// const fullyDesc = createAction('description/fully', ({ fully }) => ({
+//   payload: { fully },
+// }));
 
-const shortlyDesc = createAction('description/shortly');
+// const shortlyDesc = createAction('description/shortly');
 
-export { fullyDesc, shortlyDesc };
+// export { fullyDesc, shortlyDesc };
