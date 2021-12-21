@@ -1,42 +1,18 @@
 @import 'styles/colors';
 
-.freeButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 58px;
-  padding: 5px 9px 3px 9px;
-
-  border: transparent;
-  border-radius: 5px;
-  background-color: $white;
-  color: $red-accent;
-
-  cursor: pointer;
-
-  font-family: Segoe UI;
-
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.36px;
-
-  border: 0.5px solid $white;
-  background-color: $white;
-}
-// active button style
+.freeButton,
 .freeButtonActive {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  min-width: 58px;
+  min-width: 49px;
+  height: 33px;
   padding: 5px 9px 3px 9px;
 
-  border: transparent;
   border-radius: 5px;
-  background-color: $white;
-  color: $red-accent;
+
+  color: $text-title;
 
   cursor: pointer;
 
@@ -45,8 +21,12 @@
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36px;
-  // hover redirect on active style
 
-  border: 0.5px solid #4c4c4c;
+  border: transparent;
+  background-color: $white;
+}
+// active button style
+.freeButtonActive {
+  border: transparent;
   background-color: $light-gray-accent;
 }

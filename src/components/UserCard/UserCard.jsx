@@ -85,7 +85,7 @@ function UserCard({
 
         <FreeButton onClick={togglePopup} className={style}>
           <ArrowFree className={s.arrow} />
-          free
+          Free
         </FreeButton>
 
         {showPopup && <Popup onClose={togglePopup} />}

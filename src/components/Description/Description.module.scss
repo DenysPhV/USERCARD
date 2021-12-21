@@ -13,13 +13,13 @@
 .activeLink {
   position: absolute;
   left: 0;
-  bottom: -30px;
-
-  border: 1px solid $light-gray-accent;
+  bottom: -32px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
 
   border-radius: 5px;
   padding: 8px;
@@ -36,9 +36,11 @@
   display: flex;
   align-content: center;
 }
+
 .location {
   margin-right: 26px;
   fill: $indigo;
+  cursor: pointer;
 
   &:hover {
     fill: $text-accent;
