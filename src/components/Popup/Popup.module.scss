@@ -41,7 +41,7 @@
     rgb(255, 255, 255) 50%,
     rgba(153, 196, 255, 1) 50%
   );
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 6px $shadow;
 }
 
 .freeButtonActive {
@@ -53,19 +53,16 @@
   padding: 5px 9px 3px 9px;
 
   border-radius: 5px;
-
-  color: $text-title;
+  border: 1px solid $light-gray-accent;
+  background-color: $white;
 
   cursor: pointer;
 
+  color: $main-text;
   font-family: Segoe UI;
-
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36px;
-
-  border: 0.5px solid $light-gray-accent;
-  background-color: $white;
 }
 
 .arrowDown {
@@ -78,8 +75,15 @@
   display: block;
   width: 6px;
   height: 5px;
-  background: url('../../images/down@1x.png');
-
+  background: url('../../images/down@2x.png');
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    & {
+      background: url('../../images/down@2x.png');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
 }

@@ -7,6 +7,7 @@ import FrontDeskBtn from '../FrontDeskBtn/FrontDeskBtn';
 import HotelIcon from '../HotelIcon/HotelIcon';
 import Popup from 'components/Popup';
 import Video from '../Video/Video';
+import Gallery from '../Gallery/Gallery';
 
 import s from './UserCard.module.scss';
 import btnStyle from '../FreeButton/FreeButton.module.scss';
@@ -57,26 +58,19 @@ function UserCard({
         </div>
         <h2 className={s.hotelName}>{title}</h2>
       </header>
-      {/* Тело карты пользователя */}
-      <main className={s.main}>
-        <ul className={s.imageList}>
-          <li className={s.imageItem}>
-            <img src={url} alt={title} className={s.image} />
-          </li>
-          {!isReadMore && (
-            <li className={s.imageItem}>
-              <img src={url} alt={title} className={s.image} />
-            </li>
-          )}
-        </ul>
 
+      <main className={s.main}>
+        {/* pictures hotels */}
+        <Gallery url={url} title={title} isReadMore={isReadMore} />
+        {/* text about hotel */}
         <Description isReadMore={isReadMore} onClick={toggleReadMore} />
+        {/* right navbar  */}
         <div className={s.serveBar}>
           <Video src={Video} />
           <FrontDeskBtn isReadMore={isReadMore} onClick={toggleReadMore} />
         </div>
       </main>
-      {/* футер карты пользователя  */}
+
       <footer className={s.footerCard}>
         {/* the button link on feedback  */}
         <NavLink to="/feedback" className={s.button}>
@@ -88,6 +82,7 @@ function UserCard({
           Free
         </FreeButton>
 
+        {/* popup free to cancel reservation  */}
         {showPopup && <Popup onClose={togglePopup} />}
 
         <p className={s.areaApartment}>{areaApartment} м.кв.</p>
