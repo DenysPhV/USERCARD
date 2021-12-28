@@ -1,21 +1,44 @@
+import { useState } from 'react';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-// import { store } from './store/store';
-import Container from 'components/Container';
+
 import UserCard from 'components/UserCard';
 
 import FeedbackView from './view/FeedbackView';
 
-// import freeButton from 'components/freeButton';
-// import { ReactComponent as AddIcon } from './icons/add.svg';
-// import { ReactComponent as Hotel } from './icons/hotel.svg';
+import btnStyle from './components/FreeButton/FreeButton.module.scss';
 
 function App() {
+  const [showPopup, setShowPopup] = useState(false);
+  // const [isReadMore, setIsReadMore] = useState(true);
+  const [style, setStyle] = useState(btnStyle.freeButton);
+
+  // const toggleReadMore = () => {
+  //   setIsReadMore(!isReadMore);
+  // };
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+
+    if (!showPopup) {
+      setStyle(btnStyle.freeButtonActive);
+    } else {
+      setStyle(btnStyle.freeButton);
+    }
+    return;
+  };
+
   return (
-    <Container>
+    <>
       <Switch>
         <Route path="/" exact>
-          <UserCard />
+          <UserCard
+            // isReadMore={isReadMore}
+            // onClick={toggleReadMore}
+            onClose={togglePopup}
+            showPopup={showPopup}
+            style={style}
+          />
         </Route>
         <Route path="/feedback">
           <FeedbackView />
@@ -23,8 +46,9 @@ function App() {
         <Route path="/price" />
         <Route path="/reserve" />
         <Route path="/more-about" />
+        <Route path="/video" />
       </Switch>
-    </Container>
+    </>
   );
 }
 

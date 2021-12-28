@@ -1,9 +1,40 @@
-// import { createAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
-// const fullyDesc = createAction('description/fully', ({ fully }) => ({
-//   payload: { fully },
-// }));
+const userCardData = createAction(
+  'cardData/read',
+  ({
+    id,
+    title,
+    city,
+    place,
+    street,
+    priceBefore,
+    priceAfter,
+    areaApartment,
+    feedback,
+    status,
+    url,
+    urlImageSecond,
+    rating,
+    description,
+  }) => ({
+    payload: {
+      id,
+      title,
+      city,
+      place,
+      street,
+      priceBefore,
+      priceAfter,
+      areaApartment,
+      feedback,
+      status,
+      url,
+      urlImageSecond,
+      rating,
+      description,
+    },
+  }),
+);
 
-// const shortlyDesc = createAction('description/shortly');
-
-// export { fullyDesc, shortlyDesc };
+export { userCardData };

@@ -1,19 +1,12 @@
-// import { createReducer, combineReducers } from '@reduxjs/toolkit';
-// import card from '../../card.json';
+import { createReducer } from '@reduxjs/toolkit';
+// import { combineReducers } from 'redux';
 
-// const defaultState = card;
-// console.log(defaultState);
+import cardData from '../../card.json';
 
-// const descriptionReducer = (state = defaultState, action) => {
-//   switch (action.type) {
-//     case 'description':
-//       break;
+import { userCardData } from './userCard-actions';
 
-//     default:
-//       return state;
-//   }
-// };
+const cardUserItems = createReducer(cardData, {
+  [userCardData]: (state, action) => [action.payload, ...state],
+});
 
-// export default combineReducers({
-//   descriptionReducer,
-// });
+export default cardUserItems;

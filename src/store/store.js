@@ -1,26 +1,15 @@
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-// import { createStore } from '@reduxjs/toolkit';
-// import { devToolsEnhancer } from 'redux-devtools-extension';
+import cardReducer from '../redux/userCard/userCard-reducer';
 
-// const initialState = {
-//   value: 21,
-// };
+const store = configureStore({
+  reducer: {
+    cardReducer,
+  },
+  devTools: true,
+});
 
-// const exampleAction = {
-//   type: 'INCREMENT',
-// };
+export default store;
 
-// const reducer = (state = initialState, action) => {
-//   if (action.type === 'INCREMENT') {
-//     return { value: state.value + 1 };
-//   }
-//   return state;
-// };
-
-// export const store = createStore(
-//   reducer,
-//   devToolsEnhancer(),
-
-//   // other store enhancers if any
-// );
+// 1 получить данные из джейсона
+//

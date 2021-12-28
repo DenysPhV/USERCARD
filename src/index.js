@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; // у него есть рендер
 import { BrowserRouter } from 'react-router-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 import 'modern-normalize/modern-normalize.css';
 import './index.css';
-// import { store } from './store/store';
+import store from './store/store';
 import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    {/* </Provider> */}
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -1,3 +1,4 @@
+@import 'styles/shared';
 .videoContainer {
   position: relative;
   display: block;
@@ -9,6 +10,26 @@
 
   border: 1px transparent;
   border-radius: 5px;
+}
+
+.link {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  cursor: pointer;
+
+  color: tomato;
+
+  &Arrow {
+    width: 24px;
+    height: 27px;
+    fill: #c4c4c4;
+    fill-opacity: 0.5;
+  }
 }
 
 .videoFrame {

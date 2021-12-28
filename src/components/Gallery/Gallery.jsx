@@ -1,6 +1,8 @@
+// import defaultImage from '../../images/default.jpg';
+// import secondImage from '../../images/image-second.jpg';
 import s from './Gallery.module.scss';
 
-function Gallery({ url, title, isReadMore, rating }) {
+function Gallery({ url, urlImageSecond, title, isReadMore, rating }) {
   return (
     <>
       <ul className={s.imageList}>
@@ -10,7 +12,7 @@ function Gallery({ url, title, isReadMore, rating }) {
         </li>
         {!isReadMore && (
           <li className={s.imageItem}>
-            <img src={url} alt={title} className={s.image} />
+            <img src={urlImageSecond} alt={title} className={s.image} />
           </li>
         )}
       </ul>
@@ -18,8 +20,10 @@ function Gallery({ url, title, isReadMore, rating }) {
   );
 }
 
-Gallery.defaultProps = {
-  rating: '4,3',
-};
+// Gallery.defaultProps = {
+//   url: defaultImage,
+//   urlImageSecond: secondImage,
+//   rating: '4,3',
+// };
 
 export default Gallery;
