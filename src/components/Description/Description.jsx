@@ -1,11 +1,23 @@
-import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { ReactComponent as MoreText } from '../../icons/on.svg';
 import { ReactComponent as SmallText } from '../../icons/off.svg';
 import { ReactComponent as Location } from '../../icons/location.svg';
 
+import cardActions from '../../redux/userCard/userCard-actions';
 import s from './Description.module.scss';
 
-const Description = ({ street, isReadMore, onClick, description }) => {
+const Description = ({ id, street, description }) => {
+  const [isShowText, setIsShowText] = useState(true);
+  const dispatch = useDispatch();
+
+  const onToggleElement = (id) => {
+    setIsShowText(!isShowText);
+    // dispatch(cardActions.showElement(id));
+    dispatch(cardActions.toggleCompleted(id));
+  };
+
   const smallDescription = description.slice(0, 232).concat('...');
 
   return (
@@ -18,17 +30,23 @@ const Description = ({ street, isReadMore, onClick, description }) => {
         </div>
         {/* text block */}
         <div>
-          <p className={s.desc}>
-            {(isReadMore && smallDescription) || description}
-          </p>
-          {/* button open more text*/}
-          <div onClick={onClick}>
-            {isReadMore ? (
-              <MoreText className={s.link} />
-            ) : (
-              <SmallText className={s.activeLink} />
-            )}
+          <div className={s.desc}>
+            {(isShowText && smallDescription) || description}
           </div>
+          {/* button open more text*/}
+          <button
+            type="button"
+            onClick={() => onToggleElement(id)}
+            className={s.btn}
+          >
+            <div>
+              {isShowText ? (
+                <MoreText className={s.link} />
+              ) : (
+                <SmallText className={s.activeLink} />
+              )}
+            </div>
+          </button>
         </div>
       </div>
     </section>

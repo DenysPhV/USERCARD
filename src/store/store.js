@@ -4,7 +4,7 @@ import cardReducer from '../redux/userCard/userCard-reducer';
 
 const store = configureStore({
   reducer: {
-    cardReducer,
+    cards: cardReducer,
   },
   devTools: true,
 });

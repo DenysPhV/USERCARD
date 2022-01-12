@@ -9,8 +9,7 @@
   margin-left: 20px;
 }
 
-.link,
-.activeLink {
+.btn {
   position: absolute;
   left: 0;
   bottom: -32px;
@@ -20,6 +19,19 @@
   align-items: center;
 
   cursor: pointer;
+  width: 33px;
+  height: 33px;
+
+  border: transparent;
+
+  background-color: $white;
+}
+
+.link,
+.activeLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border-radius: 5px;
   padding: 8px;

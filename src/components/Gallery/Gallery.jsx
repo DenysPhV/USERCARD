@@ -2,7 +2,7 @@
 // import secondImage from '../../images/image-second.jpg';
 import s from './Gallery.module.scss';
 
-function Gallery({ url, urlImageSecond, title, isReadMore, rating }) {
+function Gallery({ url, urlImageSecond, title, isShowText, rating }) {
   return (
     <>
       <ul className={s.imageList}>
@@ -10,7 +10,7 @@ function Gallery({ url, urlImageSecond, title, isReadMore, rating }) {
           <img src={url} alt={title} className={s.image} />
           <div className={s.rank}>{rating}</div>
         </li>
-        {!isReadMore && (
+        {isShowText && (
           <li className={s.imageItem}>
             <img src={urlImageSecond} alt={title} className={s.image} />
           </li>

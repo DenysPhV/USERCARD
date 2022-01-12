@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import s from '../FrontDeskBtn/FrontDeskBtn.module.scss';
 
-function FrontDeskBtn({ isReadMore, onClick }) {
+function FrontDeskBtn() {
   return (
     <>
-      {!isReadMore && (
-        <nav className={s.list} onClick={onClick}>
+      {
+        <nav className={s.list}>
           <NavLink to="/price" className={s.button}>
             Узнать цены
           </NavLink>
@@ -16,7 +16,7 @@ function FrontDeskBtn({ isReadMore, onClick }) {
             Детальнее
           </NavLink>
         </nav>
-      )}
+      }
     </>
   );
 }

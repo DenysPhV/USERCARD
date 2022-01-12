@@ -1,12 +1,20 @@
 import { createReducer } from '@reduxjs/toolkit';
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
-import cardData from '../../card.json';
+import cards from '../../card.json';
+import actions from './userCard-actions';
 
-import { userCardData } from './userCard-actions';
+const cardItems = createReducer(cards, {
+  // [actions.showElement]: (state, { payload }) => [...state, payload],
 
-const cardUserItems = createReducer(cardData, {
-  [userCardData]: (state, action) => [action.payload, ...state],
+  // [actions.showElement]: (state, { payload }) =>
+  //   state.map((state) => (state.id === payload ? state.description : state)),
+  [actions.toggleCompleted]: (state, { payload }) =>
+    state.map((state) =>
+      state.id === payload ? { ...state, completed: !state.completed } : state,
+    ),
 });
 
-export default cardUserItems;
+export default combineReducers({
+  cardItems,
+});

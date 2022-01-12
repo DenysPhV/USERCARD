@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Container from 'components/Container';
 import FreeButton from '../FreeButton/FreeButton';
@@ -13,22 +14,40 @@ import Gallery from '../Gallery/Gallery';
 import { ReactComponent as ArrowFree } from '../../icons/ArrowFree.svg';
 import { ReactComponent as Hotel } from '../../icons/hotel.svg';
 
+import { getCards } from '../../redux/userCard/userCard-selectors';
+// import cardActions from '../../redux/userCard/userCard-actions';
 import s from './UserCard.module.scss';
-import cardData from '../../card.json';
+import btnStyle from '../FreeButton/FreeButton.module.scss';
 
-function UserCard({ onClick, onClose, showPopup, style }) {
-  const [isReadMore, setIsReadMore] = useState(true);
+function UserCard() {
+  const [showPopup, setShowPopup] = useState(false);
+  const [style, setStyle] = useState(btnStyle.freeButton);
 
-  const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
+  const cards = useSelector(getCards);
+  // const dispatch = useDispatch();
+
+  // const onToggleCompleted = () =>
+  //   dispatch(cardActions.toggleCompleted(completed));
+
+  // toggle popup
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+
+    if (!showPopup) {
+      setStyle(btnStyle.freeButtonActive);
+    } else {
+      setStyle(btnStyle.freeButton);
+    }
+    return;
   };
 
   return (
     <Container>
       <ul className={s.list}>
-        {cardData.map(
+        {cards.map(
           ({
             id,
+            completed,
             title,
             city,
             place,
@@ -63,22 +82,22 @@ function UserCard({ onClick, onClose, showPopup, style }) {
                   {/* pictures hotels */}
                   <Gallery
                     title={title}
-                    isReadMore={isReadMore}
+                    isShowText={completed}
                     url={url}
                     rating={rating}
                     urlImageSecond={urlImageSecond}
                   />
                   {/* text about hotel */}
                   <Description
-                    isReadMore={isReadMore}
-                    onClick={toggleReadMore}
                     description={description}
                     street={street}
+                    id={id}
+                    // onToggleElement={onToggleElement}
                   />
                   {/* right navbar  */}
                   <div className={s.serveBar}>
                     <Video src={Video} videoLink={videoLink} />
-                    <FrontDeskBtn isReadMore={isReadMore} onClick={onClick} />
+                    {completed && <FrontDeskBtn />}
                   </div>
                 </main>
 
@@ -88,14 +107,12 @@ function UserCard({ onClick, onClose, showPopup, style }) {
                     Отзывы {feedback}
                   </NavLink>
 
-                  <FreeButton onClick={onClose} className={style}>
+                  <FreeButton onClick={togglePopup} className={style}>
                     <ArrowFree className={s.arrow} />
                     Free
                   </FreeButton>
-
                   {/* popup free to cancel reservation  */}
-                  {showPopup && <Popup onClose={onClose} />}
-
+                  {showPopup && <Popup showPopup={showPopup} />}
                   <p className={s.areaApartment}>{areaApartment} м.кв.</p>
                   <p
                     className={s.price}
