@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Container from 'components/Container';
 import FreeButton from '../FreeButton/FreeButton';
@@ -15,30 +15,20 @@ import { ReactComponent as ArrowFree } from '../../icons/ArrowFree.svg';
 import { ReactComponent as Hotel } from '../../icons/hotel.svg';
 
 import { getCards } from '../../redux/userCard/userCard-selectors';
-// import cardActions from '../../redux/userCard/userCard-actions';
+import cardActions from '../../redux/userCard/userCard-actions';
 import s from './UserCard.module.scss';
 import btnStyle from '../FreeButton/FreeButton.module.scss';
 
 function UserCard() {
   const [showPopup, setShowPopup] = useState(false);
-  const [style, setStyle] = useState(btnStyle.freeButton);
 
   const cards = useSelector(getCards);
-  // const dispatch = useDispatch();
-
-  // const onToggleCompleted = () =>
-  //   dispatch(cardActions.toggleCompleted(completed));
+  const dispatch = useDispatch();
 
   // toggle popup
-  const togglePopup = () => {
+  const onTogglePopup = (id) => {
     setShowPopup(!showPopup);
-
-    if (!showPopup) {
-      setStyle(btnStyle.freeButtonActive);
-    } else {
-      setStyle(btnStyle.freeButton);
-    }
-    return;
+    dispatch(cardActions.togglePopup(id));
   };
 
   return (
@@ -48,6 +38,7 @@ function UserCard() {
           ({
             id,
             completed,
+            showPopup,
             title,
             city,
             place,
@@ -107,7 +98,13 @@ function UserCard() {
                     Отзывы {feedback}
                   </NavLink>
 
-                  <FreeButton onClick={togglePopup} className={style}>
+                  <FreeButton
+                    onClick={() => onTogglePopup(id)}
+                    className={
+                      (!showPopup && btnStyle.freeButton) ||
+                      btnStyle.freeButtonActive
+                    }
+                  >
                     <ArrowFree className={s.arrow} />
                     Free
                   </FreeButton>

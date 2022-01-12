@@ -14,7 +14,6 @@ const Description = ({ id, street, description }) => {
 
   const onToggleElement = (id) => {
     setIsShowText(!isShowText);
-    // dispatch(cardActions.showElement(id));
     dispatch(cardActions.toggleCompleted(id));
   };
 
