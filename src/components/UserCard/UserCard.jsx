@@ -83,11 +83,10 @@ function UserCard() {
                     description={description}
                     street={street}
                     id={id}
-                    // onToggleElement={onToggleElement}
                   />
                   {/* right navbar  */}
                   <div className={s.serveBar}>
-                    <Video src={Video} videoLink={videoLink} />
+                    <Video videoLink={videoLink} />
                     {completed && <FrontDeskBtn />}
                   </div>
                 </main>
