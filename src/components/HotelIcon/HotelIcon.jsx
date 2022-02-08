@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import s from './HotelIcon.module.scss';
-
 const HotelIcon = ({ children, ...allyProps }) => (
   <div {...allyProps}>{children}</div>
 );

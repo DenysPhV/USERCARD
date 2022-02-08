@@ -47,10 +47,11 @@
 .locationContainer {
   display: flex;
   align-content: center;
+  justify-content: flex-start;
 }
 
 .location {
-  margin-right: 26px;
+  margin-right: 10px;
   fill: $indigo;
   cursor: pointer;
 
@@ -60,6 +61,8 @@
 }
 
 .title {
+  width: 175px;
+
   margin-bottom: 9px;
   font-weight: $Medium;
   font-size: 12px;

@@ -17,7 +17,8 @@ const Description = ({ id, street, description }) => {
     dispatch(cardActions.toggleCompleted(id));
   };
 
-  const smallDescription = description.slice(0, 232).concat('...');
+  const descByParagraph = description.a;
+  const smallDescription = descByParagraph.slice(0, 232).concat('...');
 
   return (
     <section className={s.container}>
@@ -30,7 +31,8 @@ const Description = ({ id, street, description }) => {
         {/* text block */}
         <div>
           <div className={s.desc}>
-            {(isShowText && smallDescription) || description}
+            <p>{(isShowText && smallDescription) || description.a}</p>
+            <p>{isShowText || description.b}</p>
           </div>
           {/* button open more text*/}
           <button

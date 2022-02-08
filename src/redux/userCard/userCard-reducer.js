@@ -14,11 +14,6 @@ const cardItems = createReducer(cards, {
     state.map((state) =>
       state.id === payload ? { ...state, showPopup: !state.showPopup } : state,
     ),
-
-  // [actions.showElement]: (state, { payload }) => [...state, payload],
-
-  // [actions.showElement]: (state, { payload }) =>
-  //   state.map((state) => (state.id === payload ? state.description : state)),
 });
 
 export default combineReducers({
