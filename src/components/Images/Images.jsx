@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import foto1 from '../../images/interier/c1/2_11.jpg';
-
 const Image = ({ src, alt, className, width, height, ...attrs }) => {
   if (!src) {
     src = `https://via.placeholder.com/${width}x${height}`;
