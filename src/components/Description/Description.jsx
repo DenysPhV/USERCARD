@@ -31,8 +31,9 @@ const Description = ({ id, street, description }) => {
         {/* text block */}
         <div>
           <div className={s.desc}>
-            <p>{(isShowText && smallDescription) || description.a}</p>
-            <p>{isShowText || description.b}</p>
+            <p> {(isShowText && smallDescription) || description.a}</p>
+            <br />
+            <p> {isShowText || description.b}</p>
           </div>
           {/* button open more text*/}
           <button
